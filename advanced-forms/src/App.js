@@ -55,20 +55,20 @@ export default function App() {
 
   const [formErrors, setFormErrors] = useState(initialFormErrors);
 
-  const getUsers = () => {
-    axios
-      .get(url)
-      .then((res) => {
-        setUsers(res.data.data);
-      })
-      .catch((err) => {
-        debugger;
-      });
-  };
+  // const getUsers = () => {
+  //   axios
+  //     .get(url)
+  //     .then((res) => {
+  //       setUsers(res.data.data);
+  //     })
+  //     .catch((err) => {
+  //       debugger;
+  //     });
+  // };
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   getUsers();
+  // }, []);
   // console.log(users)
 
   const postUser = (user) => {
@@ -76,14 +76,16 @@ export default function App() {
       .post(url, user)
       .then((res) => {
         setUsers([...users, res.data])
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         debugger;
       });
   };
 
+useEffect(()=> {
 
+}, [users])
 
   const changeValues = (event) => {
 
@@ -152,7 +154,7 @@ export default function App() {
       {
         users.map(user=>{
          return( <div className="userCard">
-            <h2>{user.first_name} {user.last_name}</h2>
+            <h2>{user.username}</h2>
         <p>{user.email}</p>
           </div>)
         })
