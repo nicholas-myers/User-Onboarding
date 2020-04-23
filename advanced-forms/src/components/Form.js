@@ -38,13 +38,13 @@ export default function Form({
   return (
     <StyledForm onSubmit={submitUser}>
       <div className="errors">
-        <Warning>
+        <Warning className="usernameError">
             {errors.username}
         </Warning>
-        <Warning>
+        <Warning className="emailError">
             {errors.email}
         </Warning>
-        <Warning>
+        <Warning className="passwordError">
             {errors.password}
         </Warning>
         <Warning>

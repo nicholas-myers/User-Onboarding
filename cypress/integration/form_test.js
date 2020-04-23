@@ -27,4 +27,34 @@ describe('User Form', () => {
         cy.get('form button')
         .click()
     })
+    it('input an invalid username', () => {
+        cy.get('input[name="username"]')
+        .type('a')
+        .should('have.value', 'a')
+    })
+   it('validate the user name error', ()=> {
+    
+       cy.get('.usernameError')
+       .should('have.text', 'username must have at least 3 characters!')
+   })
+    it('input an invalid email', () => {
+        cy.get('input[name="email"]')
+        .type('a')
+        .should('have.value', 'a')
+    })
+   it('validate the email error', ()=> {
+    
+       cy.get('.emailError')
+       .should('have.text', 'a VALID email is required')
+   })
+    it('input an invalid password', () => {
+        cy.get('input[name="password"]')
+        .type('a')
+        .should('have.value', 'a')
+    })
+   it('validate the user name error', ()=> {
+    
+       cy.get('.passwordError')
+       .should('have.text', 'Password must contain one lowercase letter, one uppercase letter and a number')
+   })
 })

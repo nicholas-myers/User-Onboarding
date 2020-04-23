@@ -140,6 +140,7 @@ export default function App() {
     };
     // console.log(newUser)
     postUser(newUser);
+    setFormValues(initialFormValues)
   };
 
   return (
