@@ -44,7 +44,7 @@ const formValidation = yup.object().shape({
     .required("email is required"),
   password: yup
   .string()
-  .matches(/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/, "must contain one lowercase letter, one uppercase letter and a number")
+  .matches(/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/, "Password must contain one lowercase letter, one uppercase letter and a number")
   .required("password is required"),
   terms: yup
     .boolean()

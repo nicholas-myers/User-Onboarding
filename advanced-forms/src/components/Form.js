@@ -62,6 +62,7 @@ export default function Form({
       <StyledLabel>Password</StyledLabel>
       <input
         name="password"
+        type="password"
         value={values.password}
         onChange={changeValues}
       ></input>
