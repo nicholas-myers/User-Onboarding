@@ -3,11 +3,29 @@ import styled from "styled-components";
 
 const StyledForm = styled.form`
   border: 1px solid black;
+  border-radius: 1rem;
   display: flex;
   flex-flow: column;
-  width: 50%;
+  width: 80%;
   padding: 5%;
+  box-shadow: 0 0 1rem .5rem gray;
+  background-color: lightblue;
 `;
+
+const Warning = styled.p`
+    width: 100%;
+    font-size: 1.5rem;
+    color: red;
+    box-shadow: none;
+    margin: 1% 0;
+
+`
+
+const StyledLabel =styled.label`
+
+    /* color: white; */
+
+`
 
 export default function Form({
   values,
@@ -20,35 +38,37 @@ export default function Form({
   return (
     <StyledForm onSubmit={submitUser}>
       <div className="errors">
-        <p>
+        <Warning>
             {errors.username}
-        </p>
-        <p>
+        </Warning>
+        <Warning>
             {errors.email}
-        </p>
-        <p>
+        </Warning>
+        <Warning>
             {errors.password}
-        </p>
+        </Warning>
+        <Warning>
+            {errors.terms}
+        </Warning>
       </div>
-      <label>User Name</label>
+      <StyledLabel>User Name</StyledLabel>
       <input
         name="username"
         value={values.username}
         onChange={changeValues}
       ></input>
-      <label>Email</label>
+      <StyledLabel>Email</StyledLabel>
       <input name="email" value={values.email} onChange={changeValues}></input>
-      <label>Password</label>
+      <StyledLabel>Password</StyledLabel>
       <input
         name="password"
         value={values.password}
         onChange={changeValues}
       ></input>
-      <label>Terms of Service</label>
+      <StyledLabel>Terms of Service</StyledLabel>
       <input
         type="checkbox"
         name="terms"
-        value={values.terms}
         onChange={checkboxChange}
       ></input>
       <button onClick={submitUser} disabled={disabled}>
